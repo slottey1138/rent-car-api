@@ -10,12 +10,14 @@ export const registerValidator = [
   body("password")
     .isLength({ min: 6 })
     .withMessage("กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัวอักษร"),
+  body("createdBy").notEmpty().withMessage("กรุณากรอกชื่อผู้สร้าง"),
+  body("updatedBy").notEmpty().withMessage("กรุณากรอกชื่อผู้ปรับปรุง"),
 ];
 
-// export const loginValidator = [
-//   body("email").isEmail().withMessage("Valid email is required"),
-//   body("password").notEmpty().withMessage("Password is required"),
-// ];
+export const loginValidator = [
+  body("username").notEmpty().withMessage("กรุณากรอกชื่อผู้ใช้"),
+  body("password").notEmpty().withMessage("กรุณากรอกรหัสผ่าน"),
+];
 
 // export const forgotPasswordValidator = [
 //   body("email").isEmail().withMessage("Valid email is required"),
