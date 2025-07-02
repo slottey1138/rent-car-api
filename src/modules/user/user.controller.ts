@@ -1,8 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import * as userService from "./user.service";
-import { query, validationResult } from "express-validator";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 
 // export const createUser = async (
 //   req: Request,
@@ -59,8 +56,8 @@ export const login = async (
   try {
     const tokens = await userService.login(req.body);
     res.status(200).json({ tokens: tokens });
-  } catch (error: any) {
-    next(error);
+  } catch (err: any) {
+    next(err);
   }
 };
 
